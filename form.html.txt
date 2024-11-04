@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <base target="_blank">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ระเบียนทันตกรรมฟันดีคลินิก</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css">
+    <style>
+        .disclaimer {
+            width: 480px;
+            color: #646464;
+            margin: 20px auto;
+            padding: 0 16px;
+            text-align: center;
+            font: 400 12px Roboto, Helvetica, Arial, sans-serif
+        }
+
+        .disclaimer a {
+            color: #009688
+        }
+
+        #credit {
+            display: none
+        }
+
+        .twitter-typeahead {
+            width: 100%;
+            background: #fff
+        }
+
+        .tt-suggestion {
+            padding: 10px 5px;
+            background: #ffe;
+            color: #000;
+            border-bottom: 1px solid #eee;
+            cursor: pointer
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <form class="main" id="form" novalidate="novalidate" style="max-width: 480px;margin: 40px auto;">
+            <img src="https://i.postimg.cc/L6X23CYv/banner1.png" width="100%" class="img-fluid" alt="Responsive image">
+            <div id="forminner">
+                <div class="alert alert-primary" role="alert">
+                    <center>
+                        <B>
+                            <font color=#004d00 size=5>ลงทะเบียนร่วมงานยี่เป็งไชยสถาน ๖๗
+                                <Br>
+                            </font>
+                        </B>
+                    </center>
+                </div>
+                <div class="alert alert-info" role="alert">
+                             <div class="form-row">
+                                <div class="form-group col-md-4">
+                            <label for="id"><B>
+                                    <font size=4 color=#004d00>เพศ</font>
+                                </B></label>
+                            <select class="form-select" aria-label="sex">
+                                <option selected>เพศ</option>
+                                <option value="1">ชาย</option>
+                                <option value="2">หญิง</option>
+                                
+                            </select>
+                        </div>
+                        
+                        <div class="form-group col-md-4">
+                            <label for="firstname"><B>
+                                    <font size=4 color=#004d00>ชื่อ</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="firstname" name="firstname" maxlength="300" placeholder="ชื่อ">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="lastname"><B>
+                                    <font size=4 color=#004d00>นามสกุล</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="lastname" name="lastname" maxlength="200" placeholder="นามสกุล">
+                        </div>
+                        </div>
+                <div class="alert alert-primary" role="alert">
+                    <center>
+                        <B>
+                            <font color=#000066 size=5>ที่อยู่
+                                <Br>
+                            </font>
+                        </B>
+                    </center>
+                </div>
+                      <div class="alert alert-info" role="alert">
+                    <div class="form-row">
+                        <div class="form-group col-md-6">
+                            <label for="district"><B>
+                                    <font size=3 color=black>ตำบล</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="district" name="district" maxlength="50" placeholder="ตำบล">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="amphoe"><B>
+                                    <font size=3 color=black>อำเภอ</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="amphoe" name="amphoe" maxlength="50" placeholder="อำเภอ">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="province"><B>
+                                    <font size=3 color=black>จังหวัด</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="province" name="province" maxlength="50" placeholder="จังหวัด">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="cnt"><B>
+                                    <font size=3 color=black>ประเทศ</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="cnt" name="cnt" maxlength="50" placeholder="ประเทศ">
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="zipcode"><B>
+                                    <font size=3 color=black>รหัสไปรษณีย์</font>
+                                </B></label>
+                            <input type="text area" class="form-control" id="zipcode" name="zipcode" maxlength="13" placeholder="รหัสไปรษณีย์">
+                        </div>
+                    </div>
+               
+                
+                
+                
+               
+                <div class="form-row">
+                    <img id="image" width="400" />
+                </div>
+                <div class="row justify-content-center">
+                    <div class="input-field col s6 text-center">
+                        <button class="waves-effect waves-light btn submit-btn" id="button" type="submit" onclick="submitForm(); return false;">
+                            <font size=4>ลงทะเบียนร่วมงาน</font><i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+       </div>
+     </div>
+   
+    </form>
+    <div class="alert alert-info" role="alert">
+        <div id="success" style="display:none">
+            <h3 class="left-align teal-text">
+                <center>
+                    <font color=#6600ff>บันทึกระเบียนทันตกรรมเรียบร้อย!</font>
+                </center>
+            </h3>
+            <div class="alert alert-danger" role="alert">
+                <center>
+                    <a href="https://script.google.com/macros/s/AKfycbzqdQDYHY5EFxf7S8kMz7uVLAykLRVG0mCiVOwnL7w/dev">
+                        <font size=8>ลงทะเบียนร่วมงานเพิ่มเติม</font>
+                    </a>
+                </center>
+            </div>
+            <center><a href="https://liff.line.me/1645278921-kWRPP32q/?accountId=621doyul">
+                    <font size=6>ติดต่อมิสเตอร์ไชยสถาน </font>
+                </a></center>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js"></script>
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/JQL.min.js"></script>
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dependencies/typeahead.bundle.js">
+    </script>
+    <link rel="stylesheet" href="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.css">
+    <script type="text/javascript" src="https://earthchie.github.io/jquery.Thailand.js/jquery.Thailand.js/dist/jquery.Thailand.min.js"></script>
+    <script>
+        // let db
+        // google.script.run.withSuccessHandler((data) => { db = data }).getDB()
+        $.Thailand({
+            $district: $('#district'),
+            $amphoe: $('#amphoe'),
+            $province: $('#province'),
+            $zipcode: $('#zipcode'),
+            onDataFill: function (data) {
+                console.log(data)
+                $('#cnt').val('ไทย')
+            },
+            onLoad: function () {
+                console.info('Autocomplete is ready!');
+                $('#loader, .demo').toggle();
+            }
+        });
+    </script>
+    <script>
+        //document.getElementById("submit").disabled = true
+        document.addEventListener('DOMContentLoaded', function () {
+            var elems = document.querySelectorAll('select');
+            var instances = M.FormSelect.init(elems);
+        });
+        var file, reader = new FileReader();
+        reader.onloadend = function (e) {
+            if (e.target.error != null) {
+                showError("File " + file.name + " could not be read.");
+                return;
+            } else {
+                google.script.run
+                    .withSuccessHandler(showSuccess)
+                    .uploadFileToGoogleDrive(e.target.result, file.name,
+                        $('input#sex').val(),
+                        $('input#firstname').val(),
+                        $('input#lastname').val(),
+                        $('input#moo').val(),
+                        $('input#district').val(),
+                        $('input#amphoe').val(),
+                        $('input#province').val(),
+                        $('input#cnt').val(),
+                        $('input#zipcode').val()
+                        
+                    );
+            }
+        };
+        function showSuccess(e) {
+            if (e === "OK") {
+                $('#forminner').hide();
+                $('#success').show();
+                $('#image').hide();
+                //$('input#distance').val("");
+                //$('input#ebib').val("");
+            } else {
+                showError(e);
+            }
+        }
+        function restartForm() {
+            $('#form').trigger("reset");
+            $('#forminner').show();
+            $('#success').hide();
+            $('#button').show();
+        }
+        
+        function submitForm() {
+            var id= $('input#sex').val();
+            if (id.length === 0) {
+                showError("กรุณาเลือกเพศ");
+                return;
+            }
+            
+            var firstname = $('input#firstname').val();
+            if (firstname.length === 0) {
+                showError("กรุณากรอกชื่อของท่านด้วย");
+                return;
+            }
+            var lastname = $('input#lastname').val();
+            if (lastname.length === 0) {
+                showError("กรุณากรอกนามสกุลของท่านด้วย");
+                return;
+            }
+            
+            var district = $('input#district').val();
+            if (district.length === 0) {
+                showError("กรุณากรอกตำบลของท่าน");
+                return;
+            }
+            
+            
+            showMessage("...กำลังบันทึกระเบียนทันตกรรมให้ท่าน...");
+            reader.readAsDataURL(file);
+        }
+        function showError(e) {
+            Swal.fire({
+                title: 'ขออภัย!',
+                text: e,
+                icon: 'error',
+                confirmButtonText: 'รับทราบ'
+            })
+        }
+        function showMessage(e) {
+            Swal.fire({
+                title: 'Success!',
+                text: 'กำลังดำเนินการส่งข้อมูลให้ท่าน',
+                icon: 'success',
+                confirmButtonText: 'รับทราบ'
+            })
+        }
+        $(document).ready(function () {
+            $('select').material_select();
+        });
+        document.getElementById("files").onchange = function () {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+                document.getElementById("image").src = e.target.result;
+                $('#image').show();
+            };
+            reader.readAsDataURL(this.files[0]);
+        };
+  // document.getElementById("waves-effect waves-light btn submit-btn").style.display = "none"
+    </script>
+    <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</body>
+
+</html>

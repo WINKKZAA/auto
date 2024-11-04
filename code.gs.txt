@@ -1,0 +1,70 @@
+var SCRIPT_PROP = PropertiesService.getScriptProperties();
+function setup() {
+    var doc = SpreadsheetApp.getActiveSpreadsheet();
+
+    SCRIPT_PROP.setProperty("1QdvCXa0OAr_RBqJ6f422O7cn0V5_Bt0-RrsBT2T7S44", doc.getId());
+}
+function doGet(e) {
+  return HtmlService.createHtmlOutputFromFile('form.html').setTitle("ลงทะเบียนร่วมงานยี่เป็งไชยสถาน ๖๗");
+}
+
+function uploadFileToGoogleDrive(data, file,sex,firstname,lastname,moo,district,amphoe,province,cnt,zipcode) {
+
+  try {
+   
+    var folder=DriveApp.getFolderById('1qWTuxK1BVhnTSMTiGVTJvgTNBnHIG6BR');
+   
+    var contentType = data.substring(5,data.indexOf(';')),
+        bytes = Utilities.base64Decode(data.substr(data.indexOf('base64,')+7)),
+        blob = Utilities.newBlob(bytes, contentType, file),
+       // file = folder.createFile(blob),
+      file = folder.createFolder([firstname+lastname+new Date()]).createFile(blob),
+        filelink=file.getUrl(),
+        filelid =file.getId() ;
+  var lock = LockService.getPublicLock();
+  lock.waitLock(30000);    
+   
+    var doc = SpreadsheetApp.openById("1QdvCXa0OAr_RBqJ6f422O7cn0V5_Bt0-RrsBT2T7S44");
+    var sheet = doc.getSheetByName("name");
+    var headRow =  1;
+    var headers = sheet.getRange(1, 1, 1, sheet.getLastColumn()).getValues()[0];
+    var nextRow = sheet.getLastRow()+1; 
+    var row = [];
+
+     for (i in headers){
+        
+      if (headers[i] == "sex"){ 
+        row.push("B"+sex);
+      
+      
+      } else if (headers[i] == "ชื่อ"){
+        row.push(firstname);
+      } else if (headers[i] == "นามสกุล"){
+        row.push(lastname);
+     } else if (headers[i] == "บ้านเลขที่หมู่ที่"){
+        row.push(moo);   
+     } else if (headers[i] == "ตำบล"){
+        row.push(district);   
+     } else if (headers[i] == "อำเภอ"){
+        row.push(amphoe);   
+     } else if (headers[i] == "จังหวัด"){
+        row.push(province);   
+        } else if (headers[i] == "ประเทศ"){
+        row.push(cnt);   
+     } else if (headers[i] == "รหัสไปรษณีย์"){
+        row.push(zipcode);  
+         
+     } 
+       
+    }
+
+    sheet.getRange(nextRow, 1, 1, row.length).setValues([row]);
+    return "OK";
+   } catch (f) {
+    return f.toString();
+  } finally {
+    lock.releaseLock();
+  }
+
+}
+
